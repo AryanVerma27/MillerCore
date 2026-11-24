@@ -1,0 +1,12 @@
+.DS_Store
+# Cadence lock / backup / log files
+*.cdslck*
+*.oa-
+*.log
+*.log.*
+libManager.log*
+.cadence/
+# Spectre simulation results (regenerate with ADE / spectre)
+psf/
+simulation/
+*.raw

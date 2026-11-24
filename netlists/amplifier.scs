@@ -1,0 +1,64 @@
+// Two-stage Miller-compensated CMOS op-amp (subcircuit only)
+// Technology : IBM 0.13 um cmrf8sf, thick-oxide nfet33 / pfet33 devices
+// Pins       : GND INN INP OUT VDD
+// Bias       : single ideal 5 uA current source (I0) -> M8 -> M5 (tail, 10 uA) and M7 (2nd stage, ~41.6 uA)
+// Compensation: Cc = 0.8 pF in series with Rz = 5 kOhm (nulling resistor)
+//
+// Include the PDK models before using this subcircuit, e.g.
+//   include "<PDK>/Spectre/models/design.scs"
+//   include "<PDK>/Spectre/models/allModels.scs" section=tt
+simulator lang=spectre
+
+subckt AMPLIFIER GND INN INP OUT VDD
+    M6 (OUT net2 VDD VDD) pfet33 l=1u w=10u nf=1 m=8 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M4 (net2 net1 VDD VDD) pfet33 l=1u w=10u nf=1 m=1 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M3 (net1 net1 VDD VDD) pfet33 l=1u w=10u nf=1 m=1 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M7 (OUT net4 GND GND) nfet33 l=1u w=2.5u nf=1 m=8 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M8 (net4 net4 GND GND) nfet33 l=1u w=2.5u nf=1 m=1 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M5 (net3 net4 GND GND) nfet33 l=3u w=7.5u nf=1 m=2 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M2 (net2 INP net3 GND) nfet33 l=2u w=4u nf=1 m=1 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M1 (net1 INN net3 GND) nfet33 l=2u w=4u nf=1 m=1 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    I0 (VDD net4) isource dc=5u type=dc
+    Rz (net2 net5) resistor r=5K
+    Cc (net5 OUT) capacitor c=800f
+ends AMPLIFIER

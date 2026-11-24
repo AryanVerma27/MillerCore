@@ -1,0 +1,92 @@
+// Generated for: spectre
+// Generated on: Nov 16 00:57:10 2026
+// Design library name: EE6326_PROJECT
+// Design cell name: TB_AC
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters vcm=1
+include "/proj/cad/library/mosis/IBM_PDK/cmrf8sf/V1.8.0.4DM/Spectre/models/design.scs"
+include "/proj/cad/library/mosis/IBM_PDK/cmrf8sf/V1.8.0.4DM/Spectre/models/allModels.scs" section=tt
+
+// Library name: EE6326_PROJECT
+// Cell name: AMPLIFIER
+// View name: schematic
+subckt AMPLIFIER GND INN INP OUT VDD
+    M6 (OUT net2 VDD VDD) pfet33 l=1u w=10u nf=1 m=8 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M4 (net2 net1 VDD VDD) pfet33 l=1u w=10u nf=1 m=1 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M3 (net1 net1 VDD VDD) pfet33 l=1u w=10u nf=1 m=1 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M7 (OUT net4 GND GND) nfet33 l=1u w=2.5u nf=1 m=8 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M8 (net4 net4 GND GND) nfet33 l=1u w=2.5u nf=1 m=1 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M5 (net3 net4 GND GND) nfet33 l=3u w=7.5u nf=1 m=2 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M2 (net2 INP net3 GND) nfet33 l=2u w=4u nf=1 m=1 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    M1 (net1 INN net3 GND) nfet33 l=2u w=4u nf=1 m=1 par=1 ngcon=1 \
+        ad=3e-13 as=3e-13 pd=2.2u ps=2.2u nrd=0.4835 nrs=0.4835 rf_rsub=1 \
+        plnest=-1 plorient=-1 pld200=-1 pwd100=-1 lstis=1 lnws=0 \
+        rgatemod=0 rbodymod=0 panw1=0p panw2=0p panw3=0p panw4=0p panw5=0p \
+        panw6=0p panw7=0p panw8=0p panw9=0p panw10=0p sa=6e-07 sb=6e-07 \
+        sd=0u dtemp=0
+    I0 (VDD net4) isource dc=5u type=dc
+    Rz (net2 net5) resistor r=5K
+    Cc (net5 OUT) capacitor c=800f
+ends AMPLIFIER
+// End of subcircuit definition.
+
+// Library name: EE6326_PROJECT
+// Cell name: TB_AC
+// View name: schematic
+XAMP (0 INN INP OUT VDD) AMPLIFIER
+VIN (INP 0) vsource dc=vcm mag=1 type=dc
+VDD0 (VDD 0) vsource dc=1.5 type=dc
+CF (INN 0) capacitor c=1
+CL (OUT 0) capacitor c=2p
+LF (OUT INN) inductor l=1G
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=25 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3 ckptclock=1800 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+dcOp dc write="spectre.dc" maxiters=150 maxsteps=10000 annotate=status
+dcOpInfo info what=oppoint where=rawfile
+ac ac start=1 stop=1G dec=20 annotate=status 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

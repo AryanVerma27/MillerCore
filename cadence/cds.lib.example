@@ -1,0 +1,11 @@
+-- Example cds.lib for opening this design in Cadence Virtuoso (IC6.x).
+-- Copy to your working directory as cds.lib and point the PDK entries at your
+-- local IBM cmrf8sf installation (the PDK is not included in this repository).
+
+INCLUDE $CDSHOME/share/cdssetup/cds.lib
+
+DEFINE cmrf8sf  <PDK_ROOT>/cmrf8sf/V1.8.0.4DM/cdslib/cmrf8sf
+DEFINE esd8rf   <PDK_ROOT>/cmrf8sf/V1.8.0.4DM/cdslib/esd8rf
+
+-- Design library from this repository (the testbenches reference this library name)
+DEFINE EE6326_PROJECT ./EE6326_PROJECT
